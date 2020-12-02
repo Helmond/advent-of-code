@@ -5,6 +5,7 @@ unsigned int result=0;
 int main()
 {
     unsigned int i,j,q;
+    // puzzle 2
    for(i=0;i<200;i++)
    {
        for(j=0;j<200;j++)
@@ -21,7 +22,20 @@ int main()
         }
             
    }
-   
+   //puzzle 1
+    for(i=0;i<200;i++)
+   {
+       for(j=0;j<200;j++)
+        {
+            
+            if ((input[i]+input[j])==2020)
+            {
+                result= input[i]*input[j];
+                printf ("antwoord is %d \n\r",result);
+            }
+                
+        }
+   }
    printf ("weer eens kijken of ik het nog kan ");
    
    return 0;
