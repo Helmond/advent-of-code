@@ -1017,7 +1017,7 @@ int main()
 {
     int i=0,j=0;
     int occ=0;
-    int double_check=0;
+    //int double_check=0;
     for(i=0;i<1000;i++)// 1
     {
         occ=0;
@@ -1036,31 +1036,31 @@ int main()
        j=0;
             if(all_pw[i].pw[all_pw[i].min-1]==all_pw[i].key)
             {
-                printf ("key %c ",all_pw[i].key);
-                printf ("pw %s ",all_pw[i].pw);
-                printf ("min %d ",all_pw[i].min);
-                printf ("max %d \n",all_pw[i].max);
+                //printf ("key %c ",all_pw[i].key);
+                //printf ("pw %s ",all_pw[i].pw);
+                //printf ("min %d ",all_pw[i].min);
+                //printf ("max %d \n",all_pw[i].max);
                 occ++;
                 j++;
             }
             if(all_pw[i].pw[all_pw[i].max-1]==all_pw[i].key)
             {
-                printf ("key %c ",all_pw[i].key);
-                printf ("pw %s ",all_pw[i].pw);
-                printf ("min %d ",all_pw[i].min);
-                printf ("max %d \n",all_pw[i].max);
+                //printf ("key %c ",all_pw[i].key);
+                //printf ("pw %s ",all_pw[i].pw);
+                //printf ("min %d ",all_pw[i].min);
+                //printf ("max %d \n",all_pw[i].max);
                 occ++;
                 j++;
             }
             if(j==2)
             {
-                printf ("dubbel\n");
+                //printf ("dubbel\n");
                 occ=occ-2;
             }
         
         
     }
-    printf ("weer eens kijken of ik het nog kan %d ",valid_passwords_counter);
+    printf ("weer eens kijken of ik het nog kan %d \n",valid_passwords_counter);
      printf ("weer eens kijken of ik het nog kan %d ",occ);
    
    return 0;
