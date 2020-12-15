@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>//pow
 
 
 int input[104]={
@@ -116,10 +117,11 @@ long test_result=0;
 
 long lowest=0;
 long highest=0;
-long pt2_result=0;
+unsigned long pt2_result=0;
 long pt1_result=0;
 int size=0;
 
+int groups_1=0;
 int groups_2=0;
 int groups_3=0;
 int groups_4=0;
@@ -198,6 +200,44 @@ int main()
     {
         printf ("%d diff with next:%d , 2 next:%d , 3 next:%d\n",input[i],(input[i+1]-input[i]),(input[i+2]-input[i]),(input[i+3]-input[i]));
     }
+    //count zero's
+    for(i=0;i<104;i++)
+    {
+        if (input[i]==1)//one 1
+        {
+            if(input[i+1==1])//two 1's
+            {
+                if(input[i+2==1])//three 1's
+                {
+                    if(input[i+3==1])//four 1's analasis of input shows never more than 4 1's 
+                    {
+                        groups_4++;
+                        i+=3;
+                    }
+                    else// so surely 3 1's
+                    {
+                        groups_3++;
+                        i+=2;
+                    }
+                
+                }
+                else// there are 2 but not 3
+                {
+                    groups_2++;
+                    i+=1;
+                }
+                
+            }
+            else//only 1
+            {
+                groups_1++;
+            }
+        }
+        
+    }
+    pt2_result= 2^groups_2 * 4^groups_3 * 7^groups_4;
+    printf ("pt 2 groups1 %d groups2 %d groups3 %d groups4 %d result =%lu\n",groups_1, groups_2, groups_3, groups_4 ,pt2_result);
+    
    
    return 0;
 }
