@@ -198,33 +198,38 @@ int main()
     qsort(input, 104, sizeof(int), compare);//toch maar sorten scheelt misschien
     for (i=0; i<104; i++)
     {
-        printf ("%d diff with next:%d , 2 next:%d , 3 next:%d\n",input[i],(input[i+1]-input[i]),(input[i+2]-input[i]),(input[i+3]-input[i]));
+        //printf ("%d diff with next:%d , 2 next:%d , 3 next:%d\n",input[i],(input[i+1]-input[i]),(input[i+2]-input[i]),(input[i+3]-input[i]));
+        //printf ("%d,\n",(input[i+1]-input[i]));
     }
     //count zero's
-    for(i=0;i<104;i++)
+    for(i=0;i<106;i++)
     {
-        if (input[i]==1)//one 1
+        if ((input[i+1]-input[i]==1))//two 1
         {
-            if(input[i+1==1])//two 1's
+            //printf ("1\n");
+            if((input[i+2])-input[i+1]==1)//two 1's
             {
-                if(input[i+2==1])//three 1's
+                //printf ("2\n");
+                if((input[i+3]-input[i+2])==1)//three 1's
                 {
-                    if(input[i+3==1])//four 1's analasis of input shows never more than 4 1's 
+                   // printf ("3\n");
+                    if((input[i+4]-input[i+3])==1)//four 1's analysis of input shows never more than 4 1's 
                     {
+                        //printf ("4\n");
                         groups_4++;
-                        i+=3;
+                        i+=2;//i+=3;
                     }
                     else// so surely 3 1's
                     {
                         groups_3++;
-                        i+=2;
+                        i+=1;//i+=2;
                     }
                 
                 }
                 else// there are 2 but not 3
                 {
-                    groups_2++;
-                    i+=1;
+                    groups_3++;
+                    //i+=1;
                 }
                 
             }
@@ -235,7 +240,7 @@ int main()
         }
         
     }
-    pt2_result= 2^groups_2 * 4^groups_3 * 7^groups_4;
+    pt2_result= pow(1,groups_1)*pow(2,groups_2)* pow(4,groups_3) * pow(7,groups_4);
     printf ("pt 2 groups1 %d groups2 %d groups3 %d groups4 %d result =%lu\n",groups_1, groups_2, groups_3, groups_4 ,pt2_result);
     
    
